@@ -1,0 +1,11 @@
+#!/bin/sh
+
+node resynch.js \
+--author https://author:4502 \
+--publish https://publish:4503 \
+--user admin \
+--password admin \
+--proxy http://localhost:9999 \
+--path '/brand-marketing/2023' \
+--resynch \
+--tics > logs/resynch.log 

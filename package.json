@@ -1,0 +1,19 @@
+{
+  "name": "resynch",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "resynch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "http-proxy-agent": "^5.0.0",
+    "https-proxy-agent": "^5.0.1",
+    "node-fetch": "^3.3.0",
+    "yargs": "^17.7.0"
+  }
+}
