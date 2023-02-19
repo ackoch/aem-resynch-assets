@@ -103,5 +103,6 @@ It's always good to have plans, right? I would like to...
 - Integrate into AIO CLI
 - Make the script avaiable as command on npm
 - Support "Sites"
+- Support multiple publishing instances
 - Improve performance
 
