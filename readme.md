@@ -85,13 +85,23 @@ This script is a pragmantic if one-off approach. Some companies require to pass 
 
 Plus: As an architect i am working conceptually most of the time and, my coding skills have become a bit rusty. I wanted to re-fresh my JavaScipt skills. Python would have been a good alternative, as most administrators more likely have an Python interpreter installed than Node.js. Though there  is a shift towards JavaScript in the Adobe world (i.e. [App Builder](https://business.adobe.com/products/experience-manager/developer-app-builder.html) and AIO CLI are JS-based). So, I thought it could be worthwhile to invest here, too.   
 
-## Lessons Learned and Limitiations
+## Limitiations and Lessons Learned
 
 - The script supports **basic-auth**, only. This is available on most installations including AEM as a Cloud Service (AEMaaCS). For AEMaaCS this is not best practice - but you can still create local users and log in locally. A future version might add a more elaborate authentication. For the tim being, make sure to only use HTTPS to not compromise login credentials.
 -  The script compares the Author only with **one Publish**. You can run it multiple times, though.
 - The script **resynchs assets, only**. Pages within *Sites* might have the same issue. I'll augment the script whenever I face the issue in a Sites project
+- The script **re-publishes modified assets** even when they are. That means if someone has made changes to assets after they have been published, these changes are published no matter what and might circumvent approval workflows that are in place. In my experience, assets are rarely altered after publication - so I found that acceptable. This would have to be re-evaluated when augmenting the script  to Pages.
 - **The script is slow.** It is best executed against smaller batches and run in the background. Making external API requests is slow - compared to a native AEM implementation that would run on the server. For my purpose (see "Considerations") it was good enough - but I do not claim this is best practice. The script runs sequential and does not parallelize requests. While this could have sped up the execution, I wanted to a) keep things simple and b) did not want to fire hundreds parallel requests and clog up the Author system in production. For the future, I am planning to 
   - use search instead of crawling  
   - implement rate limiting, that could control how  many requests the Sling script can fire in parallel. Stay tuned.
-- If you need to speed-up run in parallel, you can start two or more batches in parallel. 
+- If you need to speed-up run in parallel, you can start two or more **batches in parallel.** 
+
+### Roadmap
+
+It's always good to have plans, right? I would like to...
+
+- Integrate into AIO CLI
+- Make the script avaiable as command on npm
+- Support "Sites"
+- Improve performance
 
