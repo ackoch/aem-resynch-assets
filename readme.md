@@ -33,6 +33,10 @@ This script uses the [Asset API](https://experienceleague.adobe.com/docs/experie
 - if an asset is marked as de-published but still found on publish, it triggers a de-publish 
 
 
+## WARNING
+
+AEM sometimes behaves a bit inconsistent: I.e. you can publish an asset A in a folder F withouth publishing F, first.
+Now when you run the script, it would detect F as being deactivated or not activated and to synch, it would unpublish F. Unpublishing a folder, however unpublishes also all its contents (which might not what you had intended).
 
 ## Usage
 
